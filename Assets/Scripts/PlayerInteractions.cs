@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 public class PlayerInteractions : MonoBehaviour
 {
     [Header("InteractableInfo")]
@@ -10,123 +14,92 @@ public class PlayerInteractions : MonoBehaviour
     private Vector3 raycastPos;
     public GameObject lookObject;
     private FPSGrab physicsObject;
-    [SerializeField] Camera mainCamera;
+    [SerializeField] private Camera mainCamera;
 
     [Header("Pickup")]
-    [SerializeField] private Transform pickupParent;
+    [SerializeField] private Transform pickupParent;     // assign a HoldPoint
     public GameObject currentlyPickedUpObject;
     private Rigidbody pickupRB;
 
     [Header("ObjectFollow")]
-    [SerializeField] private float minSpeed = 0;
-    [SerializeField] private float maxSpeed = 300f;
     [SerializeField] private float maxDistance = 10f;
-    private float currentSpeed = 0f;
-    private float currentDist = 0f;
+    [SerializeField] private float followGain = 12f;     // how aggressively it chases
+    [SerializeField] private float maxChaseSpeed = 20f;  // hard cap
 
     [Header("Rotation")]
     public float rotationSpeed = 100f;
-    Quaternion lookRot;
+    private Quaternion lookRot;
 
-    //A simple visualization of the point we're following in the scene view
     private void OnDrawGizmos()
     {
+        if (!pickupParent) return;
         Gizmos.color = Color.yellow;
         Gizmos.DrawSphere(pickupParent.position, 0.5f);
     }
 
-    //Interactable Object detections and distance check
     void Update()
     {
-        //Here we check if we're currently looking at an interactable object
-        raycastPos = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        // Center-screen spherecast for interactables
+        raycastPos = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f, 0f));
         RaycastHit hit;
         Debug.DrawRay(raycastPos, mainCamera.transform.forward, Color.green);
-        if (Physics.SphereCast(raycastPos, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, 1 << interactableLayerIndex))
+
+        int layerMask = 1 << interactableLayerIndex;
+        if (Physics.SphereCast(raycastPos, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, layerMask))
         {
-
             lookObject = hit.collider.transform.root.gameObject;
-
         }
         else
         {
             lookObject = null;
-
         }
 
-
-
-        /*if we press the button of choice
-        if (Input.GetButtonDown("Fire2"))
-        {
-
-        }
-        */
-
-
+        // (Your input bridge can call OnGrabPressed on KeyCode.E)
     }
 
     public void OnGrabPressed()
     {
-        //if we're not holding anything
         if (currentlyPickedUpObject == null)
         {
-            //and we are looking an interactable object
             if (lookObject != null)
-            {
-
                 PickUpObject();
-            }
-
         }
-        //if we press the pickup button and have something, we drop it
         else
         {
             BreakConnection();
         }
     }
 
-
-    //Velocity movement toward pickup parent and rotation
+    // Velocity follow toward pickupParent + gentle facing
     private void FixedUpdate()
     {
         if (currentlyPickedUpObject == null) return;
 
-        // distance & direction
         Vector3 toTarget = pickupParent.position - pickupRB.position;
         float dist = toTarget.magnitude;
 
-        // pick a proportional speed (no deltaTime on velocity!)
-        // tune these in the Inspector:
-        float followGain = 12f;                 // how aggressively it chases
-        float maxChaseSpeed = 20f;              // hard cap
-
-        // proportional control
         float speed = Mathf.Min(dist * followGain, maxChaseSpeed);
-        pickupRB.velocity = toTarget.normalized * speed;
+        pickupRB.linearVelocity = toTarget.normalized * speed; // no deltaTime on velocity
 
-        // rotation (keep if you like the look)
-        Quaternion lookRot = Quaternion.LookRotation(mainCamera.transform.position - pickupRB.position);
+        lookRot = Quaternion.LookRotation(mainCamera.transform.position - pickupRB.position);
         lookRot = Quaternion.Slerp(mainCamera.transform.rotation, lookRot, rotationSpeed * Time.fixedDeltaTime);
         pickupRB.MoveRotation(lookRot);
     }
 
-
-}
-
-// In PlayerInteractions
-
-public void BreakConnection()
+    // Release the object
+    public void BreakConnection()
     {
         if (pickupRB)
         {
-            pickupRB.useGravity = true;                    // re-enable gravity
+            pickupRB.useGravity = true;
             pickupRB.constraints = RigidbodyConstraints.None;
         }
+
         currentlyPickedUpObject = null;
-        currentDist = 0;
-        if (physicsObject) physicsObject.pickedUp = false; // null-safe
-        physicsObject = null;                              // clear reference
+        if (physicsObject) physicsObject.pickedUp = false;
+
+        physicsObject = null;
+        pickupRB = null;
     }
 
     public void PickUpObject()
@@ -135,13 +108,10 @@ public void BreakConnection()
         currentlyPickedUpObject = lookObject;
         pickupRB = currentlyPickedUpObject.GetComponent<Rigidbody>();
 
-        pickupRB.useGravity = false;                       // <— carry nicely
+        pickupRB.useGravity = false; // carry nicely
         pickupRB.constraints = RigidbodyConstraints.FreezeRotation;
 
         physicsObject.playerInteractions = this;
-        StartCoroutine(physicsObject.PickUp());            // delay before breaks allowed
+        StartCoroutine(physicsObject.PickUp()); // delay before break checks
     }
-
-
-
 }
