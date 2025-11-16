@@ -28,7 +28,7 @@ public class PlantPlot : MonoBehaviour
         if (!Input.GetKeyDown(KeyCode.E))
             return;
 
-        // raycast from the center of the camera
+        // raycast from the center of the camera, basically a line that shoots out from camera to detect what it hits
         Ray ray = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit hit;
 

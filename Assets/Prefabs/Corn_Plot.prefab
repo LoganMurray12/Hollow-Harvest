@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 774917442577175309}
   - component: {fileID: 3049107986527229354}
   m_Layer: 0
-  m_Name: Plot
+  m_Name: Corn_Plot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,8 +130,9 @@ MonoBehaviour:
   - {fileID: 1485511451285356598}
   - {fileID: 8025826367673793319}
   - {fileID: 3682732785678864071}
-  offeringPrefab: {fileID: 0}
+  offeringPrefab: {fileID: 648690700913260572, guid: 7ca486ec17faa1642944652ad7a1ab8a, type: 3}
   growthTime: 5
+  interactRange: 3
 --- !u!1 &1485511451285356598
 GameObject:
   m_ObjectHideFlags: 0
