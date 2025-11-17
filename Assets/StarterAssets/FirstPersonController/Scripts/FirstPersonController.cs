@@ -110,19 +110,27 @@ namespace StarterAssets
 			_fallTimeoutDelta = FallTimeout;
 		}
 
-		private void Update()
-		{
-			JumpAndGravity();
-			GroundedCheck();
-			Move();
-		}
+        private void Update()
+        {
+            if (PauseMenu.IsPaused)
+                return;
 
-		private void LateUpdate()
-		{
-			CameraRotation();
-		}
+            JumpAndGravity();
+            GroundedCheck();
+            Move();
+        }
 
-		private void GroundedCheck()
+
+        private void LateUpdate()
+        {
+            if (PauseMenu.IsPaused)
+                return;
+
+            CameraRotation();
+        }
+
+
+        private void GroundedCheck()
 		{
 			// set sphere position, with offset
 			Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
