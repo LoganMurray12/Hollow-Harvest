@@ -8,11 +8,19 @@ public class LevelManager : MonoBehaviour
     [Header("Progress Settings")]
     public float currentValue = 0f; // Min
     public float goalValue = 100f;  // Max
+    private AudioSource music;
 
     void Start()
     {
+        music = GetComponent<AudioSource>();
+        if (music != null)
+        {
+            music.Play();
+        }
+
         UpdateBar();
     }
+
 
     public void AddProgress(float amount)
     {
