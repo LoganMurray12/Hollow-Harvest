@@ -2,14 +2,21 @@ using UnityEngine;
 
 public class OfferZone : MonoBehaviour
 {
-    public int pointsPerOffer = 10; // sets points amount
+    [Header("Scoring")]
+    public int pointsPerOffer = 10; // to change points
+
+    [Header("Audio")]
+    public AudioSource offerSound;   // to assign audio
 
     private void OnTriggerEnter(Collider other)
     {
-        // checks offering tag
         if (!other.CompareTag("Offering")) return;
 
-        // adding points
+        // play sound
+        if (offerSound != null)
+            offerSound.Play();
+
+        // add points
         LevelManager level = FindObjectOfType<LevelManager>();
         if (level != null)
         {
