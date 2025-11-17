@@ -1,0 +1,324 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5055799569491788983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5361805484892888313}
+  - component: {fileID: 4151987619001396485}
+  - component: {fileID: 5453214709219284922}
+  - component: {fileID: 8446344298803476229}
+  m_Layer: 0
+  m_Name: Mushroom Plot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5361805484892888313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5055799569491788983}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.9723, y: 1.9723, z: 1.9723}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2135879333082331943}
+  - {fileID: 5317409696853254580}
+  - {fileID: 9122241130369773754}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4151987619001396485
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5055799569491788983}
+  m_Mesh: {fileID: -6297389595445032888, guid: 1dee1560975f4fd408b7025cb667185d, type: 3}
+--- !u!23 &5453214709219284922
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5055799569491788983}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 410c68dfca0f7c54ca8b0da5f2d551d9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8446344298803476229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5055799569491788983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7befbe7cd30da7d4f903a0a78ae716a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stages:
+  - {fileID: 1652814755981173149}
+  - {fileID: 4792088795981265678}
+  - {fileID: 8490241140041558528}
+  offeringPrefab: {fileID: 0}
+  growthTime: 10
+  interactRange: 3
+--- !u!1001 &907005292254723465
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5361805484892888313}
+    m_Modifications:
+    - target: {fileID: 4998273704184650813, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998273704184650813, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998273704184650813, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998273704184650813, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998273704184650813, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998273704184650813, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998273704184650813, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998273704184650813, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998273704184650813, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4998273704184650813, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626895749727536775, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_Name
+      value: SM_PlantSoil_AmanitaMushroom_Lv2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626895749727536775, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+--- !u!1 &4792088795981265678 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5626895749727536775, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+  m_PrefabInstance: {fileID: 907005292254723465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5317409696853254580 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4998273704184650813, guid: f655c36173c266846805ace8a9ee37a1, type: 3}
+  m_PrefabInstance: {fileID: 907005292254723465}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1300181599985471623
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5361805484892888313}
+    m_Modifications:
+    - target: {fileID: 7482811129567623815, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_Name
+      value: SM_PlantSoil_AmanitaMushroom_Lv3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7482811129567623815, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823766024255692861, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823766024255692861, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823766024255692861, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823766024255692861, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823766024255692861, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823766024255692861, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823766024255692861, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823766024255692861, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823766024255692861, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823766024255692861, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+--- !u!1 &8490241140041558528 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7482811129567623815, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+  m_PrefabInstance: {fileID: 1300181599985471623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9122241130369773754 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7823766024255692861, guid: b26a7c2b738a30e41b88559114866f37, type: 3}
+  m_PrefabInstance: {fileID: 1300181599985471623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4286006399207421903
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5361805484892888313}
+    m_Modifications:
+    - target: {fileID: 2800921154648755432, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800921154648755432, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800921154648755432, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800921154648755432, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800921154648755432, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800921154648755432, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800921154648755432, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800921154648755432, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800921154648755432, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800921154648755432, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284547308045669970, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_Name
+      value: SM_PlantSoil_AmanitaMushroom_Lv1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3284547308045669970, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+--- !u!1 &1652814755981173149 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3284547308045669970, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+  m_PrefabInstance: {fileID: 4286006399207421903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2135879333082331943 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2800921154648755432, guid: f37d299c3f515334f9f7399c9e546b18, type: 3}
+  m_PrefabInstance: {fileID: 4286006399207421903}
+  m_PrefabAsset: {fileID: 0}
