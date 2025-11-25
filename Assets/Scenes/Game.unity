@@ -5851,6 +5851,11 @@ MonoBehaviour:
   progressBar: {fileID: 1974286210}
   currentValue: 0
   goalValue: 100
+  plantplots:
+  - {fileID: 3049107986527229354, guid: 9c88d1bc538fc6c4896ae496d4852835, type: 3}
+  - {fileID: 545863302238962661, guid: 95e7cd11fbbce8a4eae2c2765a375de0, type: 3}
+  - {fileID: 3270043293835119573, guid: 3f3d8a30cce4a6f488cf7d2af323d315, type: 3}
+  - {fileID: 8446344298803476229, guid: 5f3b4113a96ee4349be0701eaa57ea2c, type: 3}
 --- !u!4 &580456112
 Transform:
   m_ObjectHideFlags: 0

@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlantPlot : MonoBehaviour
 {
     [Header("Growth Stages")]
-    
     public GameObject[] stages;
 
     [Header("Harvest Settings")]
@@ -12,8 +11,11 @@ public class PlantPlot : MonoBehaviour
     public float growthTime = 5f;      // growth time in seconds
     public float interactRange = 3f;   // range to interact
 
+    [Header("Locking")]
+    public bool isLocked = false;
+
     private int stageIndex = -1;       // -1 = dirt only, 0..N-1 = plant stage
-    private Coroutine growRoutine;    // coroutine runs in background, using it here to wait and change between growth stages
+    private Coroutine growRoutine;     // coroutine for growth stages
     private Camera cam;
 
     void Start()
@@ -22,10 +24,21 @@ public class PlantPlot : MonoBehaviour
         ShowOnlyCurrentStage();       // hides later stages
     }
 
+    public void SetLocked(bool locked)
+    {
+        isLocked = locked;
+    }
+
     void Update()
     {
         // Is player pressing E
         if (!Input.GetKeyDown(KeyCode.E))
+            return;
+
+        // make sure we have a camera
+        if (cam == null)
+            cam = Camera.main;
+        if (cam == null)
             return;
 
         // raycast from the center of the camera, basically a line that shoots out from camera to detect what it hits
@@ -34,10 +47,10 @@ public class PlantPlot : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactRange))
         {
-            // get root object infront of player
+            // get root object in front of player
             GameObject root = hit.collider.transform.root.gameObject;
 
-            // only react if looking at plot
+            // only react if looking at this plot
             if (root == gameObject)
             {
                 HandleInteraction();
@@ -47,6 +60,9 @@ public class PlantPlot : MonoBehaviour
 
     void HandleInteraction()
     {
+        if (isLocked)
+            return;
+
         // if no plant, plant seed
         if (stageIndex == -1)
         {
