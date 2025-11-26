@@ -694,6 +694,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousPanel: {fileID: 1080826185}
   optionsPanel: {fileID: 571026942}
+  audioMixer: {fileID: 0}
+  volumeSlider: {fileID: 0}
+  resolutionDropdown: {fileID: 0}
 --- !u!1001 &52231034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5880,7 +5883,7 @@ AudioSource:
   m_GameObject: {fileID: 580456110}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1220321125416659268, guid: 9d1de254e16d2994c872475875fe97f8, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: be87b6505e3c40f4f860fb180b20ce34, type: 3}
   m_PlayOnAwake: 0
