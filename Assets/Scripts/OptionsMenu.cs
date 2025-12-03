@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using TMPro;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class OptionsMenu : MonoBehaviour
     public Slider volumeSlider;            // Assign volume slider in inspector
 
     [Header("Resolution Settings")]
-    public Dropdown resolutionDropdown;    // Assign dropdown in inspector
+    public TMP_Dropdown resolutionDropdown;    // TMP dropdown instead of old UI dropdown
 
     private Resolution[] resolutions;
 
@@ -30,12 +31,12 @@ public class OptionsMenu : MonoBehaviour
             }
         }
 
-        // resolution dropdown
+        // Setup resolution dropdown
         if (resolutionDropdown != null)
             SetupResolutions();
     }
 
-  // Panel Switching Section
+    // Panel Switching Section
     public void OpenOptions()
     {
         if (previousPanel != null)
@@ -54,37 +55,39 @@ public class OptionsMenu : MonoBehaviour
             previousPanel.SetActive(true);
     }
 
-   // Volume Section
+    // Volume Section
     public void SetVolume(float value)
     {
         // Slider has 0–1 value; AudioMixer uses decibels so this converts
         float dB = Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f;
         audioMixer.SetFloat("MasterVolume", dB);
-        // Line above saves volume when game exits
+
+        // Saves volume setting
         PlayerPrefs.SetFloat("MasterVolume", value);
     }
 
     // Resolution Section
     private void SetupResolutions()
     {
-        // stores screen resolution
+        // stores all available screen resolutions
         resolutions = Screen.resolutions;
+
+        // Clear previous dropdown values
         resolutionDropdown.ClearOptions();
-        // options are filled automatically so this clears it
 
         int currentIndex = 0;
         var options = new System.Collections.Generic.List<string>();
 
         for (int i = 0; i < resolutions.Length; i++)
         {
-            // tis adds readable options
+            // Adds readable options to dropdown
             string option =
                 resolutions[i].width + " x " + resolutions[i].height +
                 " @ " + resolutions[i].refreshRate + "Hz";
 
             options.Add(option);
 
-            // checks and highlights current resolution
+            // Highlights current resolution
             if (resolutions[i].width == Screen.currentResolution.width &&
                 resolutions[i].height == Screen.currentResolution.height)
             {
@@ -92,6 +95,7 @@ public class OptionsMenu : MonoBehaviour
             }
         }
 
+        // Add options to TMP Dropdown
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentIndex;
         resolutionDropdown.RefreshShownValue();
